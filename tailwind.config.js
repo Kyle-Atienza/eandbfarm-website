@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -18,6 +20,19 @@ module.exports = {
       gopher: ["var(--font-gopher)"],
       ranille: ["var(--font-ranille)"],
     },
+    content: {
+      titleShine: "url('../images/decorations/title-shine.svg')",
+    },
+    backgroundImage: {
+      titleShine: "url('../images/decorations/title-shine.svg')",
+    },
+    screens: {
+      xs: "475px",
+      ...defaultTheme.screens,
+    },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/container-queries"),
+    require("@tailwindcss/line-clamp"),
+  ],
 };

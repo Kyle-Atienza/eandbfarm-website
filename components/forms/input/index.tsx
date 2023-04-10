@@ -1,5 +1,5 @@
 import gsap, { Linear } from "gsap";
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { IoArrowForwardOutline } from "react-icons/io5";
 
@@ -18,10 +18,10 @@ export const Input = ({
   const comp = React.useRef<HTMLDivElement>(null);
   const [animationSpeed, setAnimationSpeed] = useState<number>(1);
 
-  useLayoutEffect(() => {
-    gsap.context(() => {
+  useEffect(() => {
+    const ctx = gsap.context(() => {
       gsap.fromTo(
-        ".arrow",
+        "[data-animate='arrows-to-right']",
         { x: "-100%", rotation: 0.01 },
         {
           x: "100%",
@@ -32,6 +32,8 @@ export const Input = ({
         }
       );
     }, comp);
+
+    return () => ctx.revert();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [animationSpeed]);
@@ -53,7 +55,8 @@ export const Input = ({
             {[1, 2, 3, 4].map((item) => (
               <IoArrowForwardOutline
                 key={item}
-                className="relative flex-shrink-0 w-full h-full arrow text-1xl text-secondary group-hover/button:text-primary"
+                className="relative flex-shrink-0 w-full h-full text-1xl text-secondary group-hover/button:text-primary"
+                data-animate="arrows-to-right"
               />
             ))}
           </div>

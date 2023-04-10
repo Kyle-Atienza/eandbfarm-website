@@ -4,10 +4,13 @@
 
 @layer base {
   h1 {
-    @apply text-5xl font-ranille;
+    @apply text-3xl xs:text-5xl md:text-6xl font-ranille;
   }
   h2 {
-    @apply text-2xl font-bold;
+    @apply text-3xl md:text-5xl font-ranille;
+  }
+  h3 {
+    @apply text-xl md:text-3xl;
   }
   p {
     @apply leading-[1.3em] text-sm;
@@ -15,5 +18,36 @@
 
   input {
     @apply bg-inherit;
+  }
+
+  hr {
+    @apply h-1 border-none rounded-3xl bg-primary;
+  }
+
+  section {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@layer utilities {
+  .block-container {
+    @apply container mx-auto;
+  }
+
+  .perspective {
+    perspective: 200px;
+  }
+
+  .perspective-top {
+    perspective-origin: top;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
   }
 }

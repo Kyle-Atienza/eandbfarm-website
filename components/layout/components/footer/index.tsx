@@ -2,8 +2,6 @@ import React from "react";
 import { Block, Input } from "@/components";
 import { FooterLinkGroup } from "@/components/layout/components/footer/components";
 
-import Link from "next/link";
-
 export const Footer = () => {
   const footerContent = [
     {
@@ -28,14 +26,12 @@ export const Footer = () => {
   ];
 
   return (
-    <Block>
-      <Block
-        padding="p-0"
-        background="primary"
-        className="text-tertiary"
-        rounded
-      >
-        <div className="flex">
+    <Block backgroundColor padding="b" margin="x">
+      <Block padding border>
+        <Block
+          padding
+          className="flex flex-col md:flex-row text-tertiary bg-primary rounded-2xl"
+        >
           <div className="flex flex-col flex-[1]">
             <h1>Signup to our newsletter</h1>
             <Input className="mt-7" submit />
@@ -43,14 +39,14 @@ export const Footer = () => {
               Latest Updates from our events, products or even recipes
             </p>
           </div>
-          <div className="flex-[2] ">
-            <div className="grid grid-rows-[repeat(3,_auto)] grid-flow-col auto-cols-[minmax(0,_200px)] justify-end  gap-x-10 text-end">
+          <div className="flex-[2] mt-10 md:mt-0">
+            <div className="grid grid-rows-[repeat(3,_auto)] grid-flow-col auto-cols-[minmax(0,_200px)] justify-end space-y-10 md:space-y-0 gap-x-10 md:gap-y-6 text-end">
               {footerContent.map((content, index) => {
                 return <FooterLinkGroup content={content} key={index} />;
               })}
             </div>
           </div>
-        </div>
+        </Block>
       </Block>
     </Block>
   );

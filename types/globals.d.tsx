@@ -9,4 +9,13 @@ declare global {
     name: string;
     value: () => string;
   };
+
+  type DefaultStyleVariant = {
+    name: string;
+    value: string;
+  };
+
+  type Product = {
+    name: string;
+  };
 }

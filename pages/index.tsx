@@ -1,8 +1,14 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import { Block, Button, ContactUs } from "@/components";
+import {
+  BestSellers,
+  FeaturedStories,
+  Categories,
+  Hero,
+  Services,
+} from "./components";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -13,7 +19,32 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} min-h-screen`}>test</main>
+      <main>
+        <section className="hero z-[2]">
+          <Hero />
+        </section>
+        <section className=" best-sellers">
+          <BestSellers />
+        </section>
+        <section className=" featured-stories">
+          <Block container padding="x">
+            <FeaturedStories />
+          </Block>
+        </section>
+        <section className="categories">
+          <Block padding="y" className="my-20">
+            <Categories />
+          </Block>
+        </section>
+        <section className=" services">
+          <Block container padding="x">
+            <Services />
+          </Block>
+        </section>
+        <section className="z-0 got-more-questions">
+          <ContactUs />
+        </section>
+      </main>
     </>
   );
 }
